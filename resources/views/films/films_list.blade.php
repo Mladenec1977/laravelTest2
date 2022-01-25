@@ -40,7 +40,6 @@
                 </td>
             </tr>
             @endforeach
-            tr>
             <th scope="row">#</th>
             <td><a class="dropdown-item" href="{{route('films.create')}}">Добавить</a></td>
 

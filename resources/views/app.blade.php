@@ -23,6 +23,16 @@
         <div class="header__logo">
             <img src="../img/Logotype.svg" alt="logo">
         </div>
+        @auth()
+         <div>
+             <h3> Yes RRRRR </h3>
+         </div>
+        @else
+        <div>
+            <a class="promo__menu-item" href="#">Вход</a>
+            <a class="promo__menu-item" href="#">Регистрация</a>
+        </div>
+        @endauth
     </header>
     <main class="promo">
         <div class="promo__menu">
