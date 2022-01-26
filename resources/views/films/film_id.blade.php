@@ -20,9 +20,11 @@
                 @endforeach
             </ul>
         </div>
+        @auth()
         <div>
             <a class="btn btn-warning" href="{{route('films.edit', $film->id)}}">Edit</a>
         </div>
+        @endauth
     </div>
 
 @endsection
