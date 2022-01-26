@@ -20,7 +20,13 @@
         </div>
         <div class="col-2">
             <label for="rating" class="form-label">Rating IMDb</label>
-            <input type="number" class="form-control" name="rating" id="rating" placeholder="0">
+            <input type="number" class="form-control" name="rating" id="rating"
+                @if(old('rating'))
+                placeholder="{{old('rating')}}" value="{{old('rating')}}"
+                @else
+                   placeholder="0"
+                @endif
+            >
         </div>
         <div class="col-md-5">
             <label for="inputState" class="form-label">Категория</label>

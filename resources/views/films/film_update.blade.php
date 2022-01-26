@@ -54,8 +54,10 @@
             </div>
         </form>
         @if(isset($film->photo))
+            <br>
             <h2>PHOTO</h2>
-            <img src="{{ route('getPhoto', $film->id) }}" class="img-fluid" alt="film">
+            <br>
+            <img src="{{ route('getPhoto', $film->id) }}" class="img-fluid" alt="film" width="25%">
         @endif
         <form enctype="multipart/form-data" method="post" action="{{route('addPhoto', $film->id)}}">
             @method('POST')
