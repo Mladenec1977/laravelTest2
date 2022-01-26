@@ -26,7 +26,7 @@
             <label for="inputState" class="form-label">Категория</label>
             <select id="genre_id" name="genre_id" class="form-select">
                 @foreach($genre as $genreNext)
-                    <option value="{{$genreNext->id}}">
+                    <option value="{{$genreNext->id}}" @if($genreNext->id == old('genre_id')) selected @endif>
                         {{$genreNext->title}}
                     </option>
                 @endforeach
@@ -36,7 +36,7 @@
             <label for="inputState" class="form-label">Жанр</label>
             <select id="category_id" name="category_id" class="form-select">
                 @foreach($category as $categoryNext)
-                    <option value="{{$categoryNext->id}}">
+                    <option value="{{$categoryNext->id}}" @if($categoryNext->id == old('category_id')) selected @endif>
                         {{$categoryNext->title}}
                     </option>
                 @endforeach
@@ -44,7 +44,8 @@
         </div>
         <div class="col-12">
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" name="viewed" id="viewed">
+                <input class="form-check-input" type="checkbox" role="switch" name="viewed" id="viewed"
+                       @if(old('viewed') == 'on') checked @endif>
                 <label class="form-check-label" for="flexSwitchCheckDefault">Уже видел</label>
             </div>
         </div>

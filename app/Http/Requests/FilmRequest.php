@@ -26,7 +26,7 @@ class FilmRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'min:3', 'max:200'],
-            'description' => ['required', 'string', 'min:3', 'max:200'],
+            'description' => ['required', 'string', 'min:3', 'max:500'],
             'rating' => ['required', 'integer'],
             'genre_id' => ['required', 'integer', 'exists:genres,id'],
             'category_id' => ['required', 'integer', 'exists:categories,id'],

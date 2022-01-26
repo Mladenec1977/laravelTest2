@@ -21,7 +21,11 @@
             <tbody>
             @foreach($films as $item)
             <tr>
-                <th scope="row"><img src="{{ route('getPhoto', $item->id) }}" class="img-fluid" alt="film" width="100px"></th>
+                <th scope="row">
+                    @if(isset($item->photo)) <img src="{{ route('getPhoto', $item->id) }}"
+                                                              class="img-fluid" alt="film" width="100px">
+                    @endif
+                </th>
                 <td><a class="dropdown-item" href="{{route('films.show', $item->id)}}">{{$item->title}}</a></td>
                 <td>{{$item->description}}</td>
                 <td>{{$item->rating}}</td>
