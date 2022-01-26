@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -82,7 +86,7 @@
     position: absolute;
     top: 2px;
     right: 10px;
-    /*background: url("../img/search.svg") center center/cover no-repeat;*/
+    /*background: url("../icons/search.svg") center center/cover no-repeat;*/
     width: 24px;
     height: 24px
 }
@@ -150,7 +154,7 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
-    color: #212529;
+    color: #FFFFFF;
     text-transform: uppercase
 }
 
@@ -158,7 +162,7 @@
     font-weight: bold;
     font-size: 48px;
     line-height: 56px;
-    color: #212529;
+    color: #FFFFFF;
     text-transform: uppercase
 }
 
@@ -167,7 +171,7 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 21px;
-    color: #212529;
+    color: #FFFFFF;
     text-transform: uppercase
 }
 
@@ -246,7 +250,7 @@
     transform: translateY(-50%);
     width: 20px;
     height: 20px;
-    /*background: url("../img/Star.svg") center center/cover no-repeat*/
+    /*background: url("../icons/Star.svg") center center/cover no-repeat*/
 }
 
 .promo__interactive-item:before {

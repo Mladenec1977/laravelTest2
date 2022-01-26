@@ -15,18 +15,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\FilmController::class, 'index'])
-    ->name('home');
+    ->name('filmsList');
 
 Route::get('/genre/{genre_id}', [App\Http\Controllers\FilmController::class, 'homeGenre'])
     ->name('homeGenre');
 
-Route::post('/photo/{film_id}', [App\Http\Controllers\FilmController::class, 'addPhoto'])
-    ->name('addPhoto');
-
-Route::get('/photo/{film_id}', [App\Http\Controllers\FilmController::class, 'getPhoto'])
-    ->name('getPhoto');
-
 Route::get('/search', [App\Http\Controllers\FilmController::class, 'searchFilms'])
     ->name('searchFilms');
 
-Route::resource('films', FilmController::class);
+Route::post('/photo/{films_id}', [App\Http\Controllers\FilmController::class, 'addPhoto'])
+    ->name('addPhoto');
+
+Route::get('/photo/{films_id}', [App\Http\Controllers\FilmController::class, 'getPhoto'])
+    ->name('getPhoto');
+
+Route::resources([
+    'films' => FilmController::class
+]);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

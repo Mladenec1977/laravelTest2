@@ -12,8 +12,10 @@
                 <th scope="col">Просмотреный</th>
                 <th scope="col">Жанр</th>
                 <th scope="col">Категория</th>
+                @auth()
                 <th scope="col">Ред</th>
                 <th scope="col">Del</th>
+                @endauth
             </tr>
             </thead>
             <tbody>
@@ -28,22 +30,26 @@
                 @else
                     <td>Нет</td>
                 @endif
-                <td>{{$item->genre->title}}</td>
-                <td>{{$item->category->title}}</td>
-                <td><a class="btn btn-warning" href="{{route('films.edit', $item->id)}}">Edit</a></td>
-                <td>
-                    <form method="post" action="{{route('films.destroy', $item->id)}}">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit" class="btn btn-danger">X</button>
-                    </form>
-                </td>
+                    <td>{{$item->genre->title}}</td>
+                    <td>{{$item->category->title}}</td>
+                @auth()
+                    <td><a class="btn btn-warning" href="{{route('films.edit', $item->id)}}">Edit</a></td>
+                    <td>
+                        <form method="post" action="{{route('films.destroy', $item->id)}}">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger">X</button>
+                        </form>
+                    </td>
+                @endauth
             </tr>
             @endforeach
-            <th scope="row">#</th>
-            <td><a class="dropdown-item" href="{{route('films.create')}}">Добавить</a></td>
-
-            </tr>
+            @auth()
+                <tr>
+                    <th scope="row">#</th>
+                    <td><a class="dropdown-item" href="{{route('films.create')}}">Добавить</a></td>
+                </tr>
+            @endauth
             </tbody>
         </table>
     </div>

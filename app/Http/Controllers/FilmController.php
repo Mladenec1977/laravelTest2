@@ -100,10 +100,6 @@ class FilmController extends Controller
             file_put_contents($file, $film->photo);
         }
 
-
-//        dd($film);
-//        dump();
-
         return view('films.film_id', compact('film', 'filmViewed'));
     }
 
@@ -182,8 +178,6 @@ class FilmController extends Controller
     {
         $data = file_get_contents($request->file('photo')->getPathname());
         $save = ['photo' => $data];
-//        dd($save);
-//        dump();
         $affected = Film::where('id', $film_id)
             ->update($save);
         return redirect()->route('films.edit', $film_id);
@@ -192,7 +186,6 @@ class FilmController extends Controller
     public function getPhoto ($film_id)
     {
         $film = Film::findOrFail($film_id);
-        //dd($film);
         return response($film->photo)->withHeaders([
             'Content-Type' => 'image/jpeg'
         ]);
