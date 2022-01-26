@@ -14,17 +14,17 @@
             <div class="promo__interactive-title">ПРОСМОТРЕННЫЕ ФИЛЬМЫ</div>
             <ul class="promo__interactive-list">
                 @foreach($filmViewed as $item)
-                <li class="promo__interactive-item"><a class="dropdown-item" href="{{route('films.show', $item->id)}}">{{$item->title}}</a>
-                    <div class="delete"></div>
-                </li>
+                    <li class="promo__interactive-item"><a class="dropdown-item"
+                                                           href="{{route('films.show', $item->id)}}">{{$item->title}}</a>
+                        <div class="delete"></div>
+                    </li>
                 @endforeach
             </ul>
         </div>
         @auth()
-        <div>
-            <a class="btn btn-warning" href="{{route('films.edit', $film->id)}}">Edit</a>
-        </div>
+            <div>
+                <a class="btn btn-warning" href="{{route('films.edit', $film->id)}}">Edit</a>
+            </div>
         @endauth
     </div>
-
 @endsection

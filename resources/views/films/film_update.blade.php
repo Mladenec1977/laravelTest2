@@ -16,11 +16,13 @@
             </div>
             <div class="col-md-6">
                 <label for="description" class="form-label">Описание</label>
-                <input type="text" class="form-control" name="description" id="description" value="{{$film->description}}">
+                <input type="text" class="form-control" name="description" id="description"
+                       value="{{$film->description}}">
             </div>
             <div class="col-2">
                 <label for="rating" class="form-label">Rating IMDb</label>
-                <input type="number" class="form-control" name="rating" id="rating" placeholder="{{$film->rating}}" value="{{$film->rating}}">
+                <input type="number" class="form-control" name="rating" id="rating" placeholder="{{$film->rating}}"
+                       value="{{$film->rating}}">
             </div>
             <div class="col-md-5">
                 <label for="inputState" class="form-label">Категория</label>
@@ -36,7 +38,8 @@
                 <label for="inputState" class="form-label">Жанр</label>
                 <select id="category_id" name="category_id" class="form-select">
                     @foreach($category as $categoryNext)
-                        <option value="{{$categoryNext->id}}" @if($categoryNext->id == $film->category_id) selected @endif>
+                        <option value="{{$categoryNext->id}}"
+                                @if($categoryNext->id == $film->category_id) selected @endif>
                             {{$categoryNext->title}}
                         </option>
                     @endforeach

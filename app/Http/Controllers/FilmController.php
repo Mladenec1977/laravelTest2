@@ -57,7 +57,7 @@ class FilmController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(FilmRequest $request)
@@ -83,7 +83,7 @@ class FilmController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -106,7 +106,7 @@ class FilmController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -126,8 +126,8 @@ class FilmController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(FilmRequest $request, $id)
@@ -165,7 +165,7 @@ class FilmController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -183,7 +183,7 @@ class FilmController extends Controller
         return redirect()->route('films.edit', $film_id);
     }
 
-    public function getPhoto ($film_id)
+    public function getPhoto($film_id)
     {
         $film = Film::findOrFail($film_id);
         return response($film->photo)->withHeaders([
@@ -194,7 +194,7 @@ class FilmController extends Controller
     public function searchFilms(Request $request)
     {
         $data = $request->all();
-        $films = Film::where('title', 'LIKE','%'.$data['search'].'%')
+        $films = Film::where('title', 'LIKE', '%' . $data['search'] . '%')
             ->orderBy('created_at', 'desc')
             ->with('genre')
             ->with('category')
